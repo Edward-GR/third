@@ -6,14 +6,14 @@ import random
 import sys
 from PyQt5 import uic  # Импортируем uic
 from PyQt5.QtWidgets import QApplication, QMainWindow
+from circles import Ui_MainWindow
 
 
-class MyWidget(QMainWindow):
+class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('circles.ui', self)  # Загружаем дизайн
+        self.setupUi(self)
         self.pushButton.clicked.connect(self.drawCircle)
-        # Обратите внимание: имя элемента такое же как в QTDesigner
 
     def paintEvent(self, event):
         qp = QPainter()
